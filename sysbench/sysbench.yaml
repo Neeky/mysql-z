@@ -1,0 +1,14 @@
+- name: transfer script to sysbench host
+  template:
+   src: ./template/sysbench.sh
+   dest: /tmp/sysbench.sh
+   mode: 755
+
+- name: make directory for save results
+  file:
+   dest: /tmp/mysql-z/{{benchCase}}/
+   state: directory
+   mode: 0755
+
+- name: start sysbench
+  shell: bash /tmp/sysbench.sh

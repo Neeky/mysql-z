@@ -1,0 +1,18 @@
+---
+ - hosts: local
+   vars:
+    hostIP: 172.16.192.10
+    port: 3306
+    user: root
+    password: mtls0352
+    db: tempdb
+    tableCount: 1
+    tableSize: 10000
+    events: 0
+    threads: 1
+    opration: oltp_insert
+
+   tasks:
+    - name: start sysbench
+      import_tasks: ./sysbench/sysbench.yaml
+
