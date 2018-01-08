@@ -6,24 +6,24 @@
     user: root
     password: mtls0352
     db: tempdb
-    tableCount: 1
+    tableCount: 10
     tableSize: 10000
     events: 0
-    threads: 1
+    threads: 2
     config: { 'name':'autocommit','value':'on' }
    tasks:
-    - name: start sysbench
+    - name: start sysbench 
       include_tasks: ./sysbench/sysbench.yaml
       with_items: 
        - 'bulk_insert'
-       - 'oltp_delete'
-       - 'oltp_insert'
-       - 'oltp_point_select'
-       - 'oltp_read_only'
-       - 'oltp_read_write'
-       - 'oltp_update_index'
-       - 'oltp_update_non_index'
-       - 'oltp_write_only'
-       - 'select_random_points'
-       - 'select_random_ranges'
+       #- 'oltp_delete'
+       #- 'oltp_insert'
+       #- 'oltp_point_select'
+       #- 'oltp_read_only'
+       #- 'oltp_read_write'
+       #- 'oltp_update_index'
+       #- 'oltp_update_non_index'
+       #- 'oltp_write_only'
+       #- 'select_random_points' #当tables>1的时候不支持
+       #- 'select_random_ranges' #当tables>1的时候不支持
 

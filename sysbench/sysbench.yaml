@@ -10,5 +10,6 @@
    state: directory
    mode: 0755
 
-- name: start sysbench
+- name: start sysbench {{ item }}
   shell: bash /tmp/sysbench.sh
+
