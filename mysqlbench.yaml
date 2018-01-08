@@ -1,7 +1,7 @@
 ---
- - hosts: local
+ - hosts: cstudio
    vars:
-    hostIP: 172.16.192.10
+    hostIP: 127.0.0.1
     port: 3306
     user: root
     password: mtls0352
@@ -10,9 +10,20 @@
     tableSize: 10000
     events: 0
     threads: 1
-    opration: oltp_insert
-
+    config: { 'name':'autocommit','value':'on' }
    tasks:
     - name: start sysbench
-      import_tasks: ./sysbench/sysbench.yaml
+      include_tasks: ./sysbench/sysbench.yaml
+      with_items: 
+       - 'bulk_insert'
+       - 'oltp_delete'
+       - 'oltp_insert'
+       - 'oltp_point_select'
+       - 'oltp_read_only'
+       - 'oltp_read_write'
+       - 'oltp_update_index'
+       - 'oltp_update_non_index'
+       - 'oltp_write_only'
+       - 'select_random_points'
+       - 'select_random_ranges'
 

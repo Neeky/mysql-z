@@ -1,12 +1,12 @@
 - name: transfer script to sysbench host
   template:
-   src: ./template/sysbench.sh
+   src: ./templates/sysbench.sh
    dest: /tmp/sysbench.sh
    mode: 755
 
 - name: make directory for save results
   file:
-   dest: /tmp/mysql-z/{{benchCase}}/
+   dest: /tmp/mysql-z/{{ config.name }}#{{ config.value }}/
    state: directory
    mode: 0755
 
