@@ -1,5 +1,6 @@
 ---
  - hosts: cstudio
+   gather_facts: no
    vars:
     hostIP: 127.0.0.1
     port: 3306
