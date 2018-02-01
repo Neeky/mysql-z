@@ -59,6 +59,7 @@ def post_bench_case_instance(session,host_info,mysql_version,variable_name,bench
     data.update(csrf_token)
     r=session.post(add_bench_case_instance_url,data=data)
     print(r.text)
+  
     
 
 
